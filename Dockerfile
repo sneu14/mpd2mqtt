@@ -1,7 +1,7 @@
 # https://docs.docker.com/get-started/part2/#define-a-container-with-a-dockerfile
 
 # Use an official image including 'apt' and 'bash' as parent
-FROM debian:buster
+FROM debian:latest
 
 # Upgrade and add some software we need: mpc and mqtt client
 RUN apt update && apt -y upgrade; apt install -y mpc iputils-ping jq mosquitto-clients; apt autoremove -y; rm -rf /var/lib/apt/lists/*
