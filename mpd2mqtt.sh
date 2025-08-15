@@ -21,7 +21,7 @@ short_logfile()
   then
     if [ $( grep "." --count "${logfile}" ) -gt "1000" ]
     then
-      temp_file=$( tempfile )
+      temp_file=$( mktemp )
       tail --lines=100 "${logfile}" > ${temp_file}
       mv --force ${temp_file} ${logfile}
     fi
@@ -67,7 +67,7 @@ else
     cp "./example.config" "/data/mpd2mqtt.config"
   fi
 fi
-invalidate_file=$( tempfile )
+invalidate_file=$( mktemp )
 
 
 read_parameters()
